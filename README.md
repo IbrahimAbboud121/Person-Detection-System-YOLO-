@@ -1,29 +1,33 @@
 # Person Detection System (YOLOv8)
 
-A real-time person detection system built with YOLOv8 and OpenCV, featuring
-a custom-trained model using Roboflow for dataset preparation and Google Colab
-for training.
+A real-time person detection system built with a fully custom-trained YOLOv8
+model — from raw image collection to live webcam inference.
 
 ## How it works
 
-A custom YOLOv8 model was trained on a labeled person dataset and deployed
-for real-time inference via webcam. Each frame is passed through the model,
-which draws bounding boxes around detected persons with confidence scores.
+Every part of this project was built from scratch: images were collected
+manually, labeled using Roboflow, trained on Google Colab, and deployed
+for real-time inference via webcam.
 
-## Pipeline
+## Full Pipeline
 ```
-Webcam ──► YOLOv8 Inference ──► Bounding Box Annotation ──► Display
+Image Collection ──► Labeling (Roboflow) ──► Training (Colab) ──► Real-time Inference (OpenCV)
 ```
+
+### Dataset
+- Images collected **manually** (real-world photos)
+- Annotated and exported using **Roboflow**
+- Custom single-class dataset: `person`
 
 ### Training
-- Dataset labeled and exported using **Roboflow**
-- Model trained on **Google Colab** (GPU)
 - Base model: YOLOv8 (Ultralytics)
+- Trained on **Google Colab** with GPU acceleration
+- Output: custom `.pt` weights file
 
 ### Inference
 - Real-time webcam feed via OpenCV
 - Frame flipped horizontally for natural mirror view
-- Annotated frames rendered using Ultralytics built-in `.plot()`
+- Bounding boxes and confidence scores rendered per frame
 
 ## Run it
 ```bash
@@ -35,7 +39,8 @@ python detect.py
 
 ## Skills demonstrated
 
-- Custom YOLO model training on a self-prepared dataset
-- Dataset collection and annotation with Roboflow
-- Real-time inference pipeline with OpenCV
-- GPU-accelerated training on Google Colab
+- End-to-end custom object detection pipeline
+- Manual dataset collection and real-world image gathering
+- Dataset annotation and management with Roboflow
+- YOLOv8 fine-tuning on a custom dataset
+- Real-time inference with OpenCV and Ultralytics
