@@ -1,5 +1,5 @@
 # Person Detection System (YOLOv8)
-
+youtube:https://youtu.be/c3d2QZIKrUY
 A real-time person detection system built with a fully custom-trained YOLOv8
 model — from raw image collection to live webcam inference.
 
